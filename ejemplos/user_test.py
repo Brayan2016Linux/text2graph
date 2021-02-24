@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
    
     #=========== Testeo de captura con api ========
-    token = 'UH27nsU12uhrk5ADA1JlxaEWKhBL4Z04DtPur5ZI'
+    token = '...' #add CT Token Number to start using
     ct_dt = ce.get_ct_data(token)
 
     #Ejemplos:
