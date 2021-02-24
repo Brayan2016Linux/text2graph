@@ -1,0 +1,10 @@
+
+INCLUDE README.md
+INCLUDE LICENSE
+INCLUDE AUTHORS.md
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+#Include data:
+#recursive-include text2graph *

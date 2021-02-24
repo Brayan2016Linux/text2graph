@@ -1,0 +1,60 @@
+Fecha: 15 setiembre 2020
+
+Post Individuales (Grafos pequeños):
+
+Utilizando Crowdtangle api por medio del link (post 1 - 3):
+address1='http://www.repretel.com/actualidad/investigan-afectacion-de-la-salud-mental-en-tiempos-de-covid-19--197242'
+address2='https://www.diarioextra.com/Noticia/detalle/428549/-160-millones-en-salarios-a-jueces-de-competencia?fbclid=IwAR2GeuPIcZFB2yTg6dF_uj_WNsgSzZzLTmOYuT6DQ9MIsvU5-7XuxmW4ua8'
+address3='https://www.larepublica.net/noticia/ucr-conversa-con-empresas-aliadas-para-determinar-cantidad-de-ventiladores-que-donaria-a-la-caja'
+
+Directamente de CrowdTangle con número de post (post 4):
+'https://api.crowdtangle.com/post/573016139398622_3088000491233495?token=UH27nsU12uhrk5ADA1JlxaEWKhBL4Z04DtPur5ZI&includeHistory=true'
+
+Prueba estres:
+(Utilizando una base de datos con titulares de FB en documento excel FAB)
+Base datos: FAB_DATA2017-2018
+Lectura desde excel:
+Inicio proceso:
+Tiempo: 0.7491 s
+Lectura de archivo:
+gap = 0 y 2
+Número registros Excel: 673
+Creación del grafo
+Tokenización:
+Tokens: 13435
+Grafo:
+Mayor tiempo total (el máximo de varias pruebas)(gap 0): 1220.86 s / 20.34 minutos
+(Desde la lectura del excel hasta la impresión de la matriz, incluye cálculo de métricas)
+Nodos: 2852 (reducción de tokens)
+Aristas (undirected): 9984
+
+Productos:
+post1_adjacency_gap0.csv
+post1_adjacency_gap2.csv
+post2_adjacency_gap0.csv
+post2_adjacency_gap2.csv
+post3_adjacency_gap0.csv
+post3_adjacency_gap2.csv
+post4_adjacency_gap0.csv
+post4_adjacency_gap2.csv
+FAB_adjacency_gap0.csv
+FAB_adjacency_gap2.csv
+
+Definición del gap:
+gap0:  p(1) -> p(2); p(2) -> p(3); ...
+gap2:  p(1) -> p(3); p(2) -> p(4); ...
+
+A consultar:
+·Lista de palabras no semánticas
+·Trabajo con raíces con con lemas
+·Grafos dirigidos o no dirigidos
+
+A futuro:
+Mejorar el módulo de captura de CrowdTangle, captura csv automatizada o lectura de json.
+Agregar más métricas de grafos
+
+Aspectos a mejorar:
+Limpieza de data recibida (eliminación de emojis, y normalización de texto)
+Tokenización-Lematización-Radicación según criterios de los lingüistas.
+Agregar parametrización de palabras que el usuario quiere eliminar en la tokenización.
+

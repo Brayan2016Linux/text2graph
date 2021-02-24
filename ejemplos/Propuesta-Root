@@ -1,0 +1,29 @@
+Como devuelve:
+Si se decide trabajar con grafos basados en STEM y no en LEMAS:
+Falta: Mejorar comunidades...
+
+df = [[stem1, lema1, stem_count] ... [stemN, lemaN] ] #lista de tuplas según aparezcan en el texto
+
+stem_list = [i for i in df['stem'].tolist()]
+lema_list = [i for i in df['lemma'].tolist()]
+nodo_list: list(set(stem_list))
+para cada relación:
+De m = 0 hasta (longitud(stem_list) - 1 - gap):
+    EDGE = [nodo_list.index(stem_list[m])][ nodo_list.index(stem_list[m + 1 + gap])][weight +=1 si relacion se repite]
+
+Más o menos así:
+
+for i in range(len(stem_list) - 1 - xgap):
+            if g.has_edge(nodo_list.index(stem_list[i]), nodo_list.index(stem_list[i + 1 + xgap])):
+                g[nodo_list.index(stem_list[i])][nodo_list.index(stem_list[i + 1 + xgap])]['weight'] += 1
+            else:
+                g.add_edge(nodo_list.index(stem_list[i]), nodo_list.index(stem_list[i + 1 + xgap]), weight=1)
+      
+        return g
+
+
+Para etiquetas:
+    vertex_label = []
+    for nodo in g.nodos():
+        df_aux = df[df['stem']==nodo_list[nodo]]
+        vertex_label[nodo] = df_aux['lema'].tolist()[df_aux['stem_count'].index(max(df_aux[stem_count].tolist()))]
